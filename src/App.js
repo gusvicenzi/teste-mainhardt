@@ -1,9 +1,10 @@
 import './App.css'
+import { Shipping } from './pages/shipping/Shipping'
 
 function App() {
   return (
-    <div>
-      <h1>Teste Mainhardt CEP</h1>
+    <div className='app'>
+      <Shipping />
     </div>
   )
 }

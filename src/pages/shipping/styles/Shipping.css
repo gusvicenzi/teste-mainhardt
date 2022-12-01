@@ -1,0 +1,9 @@
+.shipping {
+  color: purple;
+  background-color: turquoise;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
