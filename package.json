@@ -10,6 +10,7 @@
     "axios": "^1.2.0",
     "eslint-plugin-jest-dom": "^4.0.3",
     "eslint-plugin-testing-library": "^5.9.1",
+    "gh-pages": "^4.0.0",
     "msw": "^0.49.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -41,9 +42,5 @@
     "moduleNameMapper": {
       "axios": "axios/dist/node/axios.cjs"
     }
-  },
-  "devDependencies": {
-    "gh-pages": "^4.0.0"
   }
 }
-
