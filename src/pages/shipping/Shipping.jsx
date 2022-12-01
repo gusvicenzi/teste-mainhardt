@@ -14,6 +14,7 @@ export function Shipping() {
   const [state, setState] = useState('')
   const [number, setNumber] = useState('')
   const [complement, setComplement] = useState('')
+  const [isReadOnly, setIsReadOnly] = useState(false)
 
   function handleCepChange(cepString) {
     const cepNumber = cepString.replace('-', '')
@@ -30,6 +31,12 @@ export function Shipping() {
       setNeighborhood(addressInfo.bairro)
       setCity(addressInfo.localidade)
       setState(addressInfo.uf)
+
+      if (!addressInfo.logradouro) {
+        setIsReadOnly(false)
+      } else {
+        setIsReadOnly(true)
+      }
     })
   }
 
@@ -40,6 +47,10 @@ export function Shipping() {
     setCep('')
     setNumber('')
     setComplement('')
+    setStreet('')
+    setNeighborhood('')
+    setCity('')
+    setState('')
   }
 
   function beforeMaskedValueChange(newState, oldState, userInput) {
@@ -123,23 +134,39 @@ export function Shipping() {
         </label>
         <label>
           Logradouro:
-          <input type='text' value={street} readOnly placeholder='Ex.:' />
+          <input
+            type='text'
+            value={street}
+            readOnly={isReadOnly}
+            onChange={e => setStreet(e.target.value)}
+            placeholder='Ex.: Rua Brasil'
+          />
         </label>
         <label>
           Bairro:
-          <input type='text' value={neighborhood} readOnly placeholder='Ex.:' />
+          <input
+            type='text'
+            value={neighborhood}
+            readOnly={isReadOnly}
+            onChange={e => setNeighborhood(e.target.value)}
+            placeholder='Ex.: Centro'
+          />
         </label>
         <label>
           Cidade:
-          <input type='text' value={city} readOnly placeholder='Ex.:' />
+          <input
+            type='text'
+            value={city}
+            readOnly
+            placeholder='Ex.: São Paulo'
+          />
         </label>
         <label>
           Estado:
-          <input type='text' value={state} readOnly placeholder='Ex.:' />
+          <input type='text' value={state} readOnly placeholder='Ex.: SP' />
         </label>
       </form>
       <button onClick={handleClear}>Limpar tudo</button>
-      <button onClick={getCepInfo}>Busca CEP</button>
     </div>
   )
 }

@@ -1,9 +1,21 @@
 .shipping {
   color: purple;
   background-color: turquoise;
+  padding: 2rem;
+  border-radius: 0.5rem;
 }
 
 form {
   display: flex;
   flex-direction: column;
+}
+
+label {
+  width: 100%;
+  display: flex;
+}
+
+input {
+  margin-left: 1rem;
+  flex-grow: 1;
 }
